@@ -1,0 +1,21 @@
+{
+  "name": "CustomEvent",
+  "version": "0.1.0",
+  "description": "A window.CustomEvent polyfill",
+  "main": "customevent.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaxPRafferty/CustomEvent.git"
+  },
+  "keywords": [
+    "CustomEvent",
+    "custom-event",
+    "polyfill"
+  ],
+  "author": "Max P. Rafferty <maxprafferty@gmail.com> (http://maxprafferty.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaxPRafferty/CustomEvent/issues"
+  },
+  "homepage": "https://github.com/MaxPRafferty/CustomEvent"
+}
