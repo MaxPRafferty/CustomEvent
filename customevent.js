@@ -29,7 +29,7 @@
             }
         }
 
-        for(key in local) {
+        for(var key in local) {
             if (local[key]['Event'] && local[key]['Event'].prototype) {
                 CustomEvent.prototype = local[key]['Event'].prototype;
                 break;
@@ -38,7 +38,7 @@
                 break;
             }
         }
-        for(key in local) {
+        for(var key in local) {
             local['key']['CustomEvent'] = CustomEvent;
         }
     }
