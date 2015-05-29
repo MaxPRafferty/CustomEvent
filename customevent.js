@@ -39,7 +39,7 @@
             }
         }
         for(var key in local) {
-            local['key']['CustomEvent'] = CustomEvent;
+            local[key]['CustomEvent'] = CustomEvent;
         }
     }
 
