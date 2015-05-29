@@ -1,33 +1,46 @@
 (function() {
     "use strict";
-    var CustomEvent = function CustomEvent (event, params) {
+    var CustomEvent = function CustomEvent (type, params) {
         params = params || { bubbles: false, cancelable: false, detail: undefined };
         var evt = document.createEvent("CustomEvent");
-        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+        if(evt.initCustomEvent) {
+            evt.initCustomEvent(type, params.bubbles, params.cancelable, params.detail);
+        } else {
+            evt.initEvent(type, params.bubbles, params.cancelable);
+            evt.detail = params.detail;
+        }
         return evt;
     };
 
     var polyfill = function polyfill() {
-        var local;
+        var local = [];
 
-        if (typeof global !== 'undefined') {
-            local = global;
-        } else if (typeof self !== 'undefined') {
-            local = self;
-        } else {
+        //spray and pray polyfilling. Doing this because some environments
+        //have different locations for Event and their global.
+        if (typeof window !== 'undefined') local.push(window);
+        if (typeof global !== 'undefined') local.push(global);
+        if (typeof GLOBAL !== 'undefined') local.push(GLOBAL);
+        if (typeof self !== 'undefined') local.push(self);
+        if (!local.length) {
             try {
-                local = Function('return this')();
+                local.push(Function('return this')());
             } catch (e) {
                 throw new Error('polyfill failed because global object is unavailable in this environment');
             }
         }
 
-        var C = local.CustomEvent;
-
-        if (C || !local['Event'] || !local['Event'].prototype) return;
-
-        CustomEvent.prototype = local['Event'].prototype;
-        local['CustomEvent'] = CustomEvent;
+        for(key in local) {
+            if (local[key]['Event'] && local[key]['Event'].prototype) {
+                CustomEvent.prototype = local[key]['Event'].prototype;
+                break;
+            } else if (local[key]['event'] && local[key]['event'].prototype) {
+                CustomEvent.prototype = local[key]['event'].prototype;
+                break;
+            }
+        }
+        for(key in local) {
+            local['key']['CustomEvent'] = CustomEvent;
+        }
     }
 
     var CustomEventExport = {
