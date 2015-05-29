@@ -1,0 +1,93 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.1.10
+3 info using node@v0.12.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/max/CustomEvent/CustomEvent',
+7 silly cache add   type: 'directory' }
+8 verbose tar pack [ '/Users/max/.npm/custom-event-autopolyfill/0.1.2/package.tgz',
+8 verbose tar pack   '/Users/max/CustomEvent/CustomEvent' ]
+9 verbose tarball /Users/max/.npm/custom-event-autopolyfill/0.1.2/package.tgz
+10 verbose folder /Users/max/CustomEvent/CustomEvent
+11 info prepublish custom-event-autopolyfill@0.1.2
+12 verbose addLocalTarball adding from inside cache /Users/max/.npm/custom-event-autopolyfill/0.1.2/package.tgz
+13 silly cache afterAdd custom-event-autopolyfill@0.1.2
+14 verbose afterAdd /Users/max/.npm/custom-event-autopolyfill/0.1.2/package/package.json not in flight; writing
+15 verbose afterAdd /Users/max/.npm/custom-event-autopolyfill/0.1.2/package/package.json written
+16 silly publish { name: 'custom-event-autopolyfill',
+16 silly publish   version: '0.1.2',
+16 silly publish   description: 'A window.CustomEvent polyfill, which agressively autopolyfills for test environments',
+16 silly publish   main: 'customevent.js',
+16 silly publish   repository:
+16 silly publish    { type: 'git',
+16 silly publish      url: 'https://github.com/MaxPRafferty/CustomEvent.git' },
+16 silly publish   keywords: [ 'CustomEvent', 'custom-event', 'polyfill' ],
+16 silly publish   author:
+16 silly publish    { name: 'Max P. Rafferty',
+16 silly publish      email: 'maxprafferty@gmail.com',
+16 silly publish      url: 'http://maxprafferty.com/' },
+16 silly publish   license: 'MIT',
+16 silly publish   bugs: { url: 'https://github.com/MaxPRafferty/CustomEvent/issues' },
+16 silly publish   homepage: 'https://github.com/MaxPRafferty/CustomEvent',
+16 silly publish   readme: '# CustomEvent\nA window.CustomEvent polyfill.\n\nCreated to correct some minor errors/issues with the MDN snippet polyfill. Additionally, wrapped in a module for NPM and agressively autopolyfill\'d in order to maximally support unit test environments in particular (node with mocha and jsDom was not served by any of the many custom event polyfill variants out there at time of writing). \n\n## Install\n`npm install custom-event-autopolyfill`\n',
+16 silly publish   readmeFilename: 'README.md',
+16 silly publish   gitHead: 'd2b7a2294d359b56960940c34e0af3042be8bc01',
+16 silly publish   _id: 'custom-event-autopolyfill@0.1.2',
+16 silly publish   scripts: {},
+16 silly publish   _shasum: '7562a64dc0a763ba343f0d6a611c8f3d39020af9',
+16 silly publish   _from: '.' }
+17 silly mapToRegistry name custom-event-autopolyfill
+18 silly mapToRegistry using default registry
+19 silly mapToRegistry registry https://registry.npmjs.org/
+20 silly mapToRegistry uri https://registry.npmjs.org/custom-event-autopolyfill
+21 verbose publish registryBase https://registry.npmjs.org/
+22 silly publish uploading /Users/max/.npm/custom-event-autopolyfill/0.1.2/package.tgz
+23 verbose request uri https://registry.npmjs.org/custom-event-autopolyfill
+24 verbose request sending authorization for write operation
+25 info attempt registry request try #1 at 4:03:44 PM
+26 verbose request using bearer token for auth
+27 verbose request id 4b0b994e1aa79639
+28 http request PUT https://registry.npmjs.org/custom-event-autopolyfill
+29 http 403 https://registry.npmjs.org/custom-event-autopolyfill
+30 verbose headers { 'content-type': 'application/json',
+30 verbose headers   'cache-control': 'max-age=60',
+30 verbose headers   'content-length': '95',
+30 verbose headers   'accept-ranges': 'bytes',
+30 verbose headers   date: 'Fri, 29 May 2015 20:03:25 GMT',
+30 verbose headers   via: '1.1 varnish',
+30 verbose headers   connection: 'close',
+30 verbose headers   'x-served-by': 'cache-atl6225-ATL',
+30 verbose headers   'x-cache': 'MISS',
+30 verbose headers   'x-cache-hits': '0',
+30 verbose headers   'x-timer': 'S1432929804.092226,VS0,VE959' }
+31 verbose request invalidating /Users/max/.npm/registry.npmjs.org/custom-event-autopolyfill on PUT
+32 error publish Failed PUT 403
+33 verbose stack Error: "You cannot publish over the previously published version 0.1.2." : custom-event-autopolyfill
+33 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:234:14)
+33 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+33 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:372:22)
+33 verbose stack     at Request.emit (events.js:110:17)
+33 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1317:14)
+33 verbose stack     at Request.emit (events.js:129:20)
+33 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1265:12)
+33 verbose stack     at IncomingMessage.emit (events.js:129:20)
+33 verbose stack     at _stream_readable.js:908:16
+33 verbose stack     at process._tickCallback (node.js:355:11)
+34 verbose statusCode 403
+35 verbose pkgid custom-event-autopolyfill
+36 verbose cwd /Users/max/CustomEvent/CustomEvent
+37 error Darwin 14.3.0
+38 error argv "node" "/usr/local/bin/npm" "publish"
+39 error node v0.12.0
+40 error npm  v2.1.10
+41 error code E403
+42 error "You cannot publish over the previously published version 0.1.2." : custom-event-autopolyfill
+43 error If you need help, you may report this error at:
+43 error     <http://github.com/npm/npm/issues>
+44 verbose exit [ 1, true ]

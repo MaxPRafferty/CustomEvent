@@ -1,6 +1,6 @@
 {
   "name": "custom-event-autopolyfill",
-  "version": "0.1.2",
+  "version": "0.1.333
   "description": "A window.CustomEvent polyfill, which agressively autopolyfills for test environments",
   "main": "customevent.js",
   "repository": {
